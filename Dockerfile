@@ -7,7 +7,7 @@ RUN apt update && \
     poetry config virtualenvs.create false
 
 FROM base
-EXPOSE $(DOCKER_EXPOSE_PORT)
+EXPOSE 8000
 
 WORKDIR /usr/src/app
 

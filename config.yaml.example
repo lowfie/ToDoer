@@ -1,0 +1,7 @@
+jwt:
+  access_token_lifetine: 1
+  refresh_token_lifetine: 7
+
+api:
+  version: "api/v1/"
+  secret_key: "my-secret-key-for-this-project"

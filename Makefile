@@ -15,7 +15,7 @@ logs-sql:
 	$(compose) logs -f db
 
 migrations:
-	$(compose) wxec web python manage.py makemigrations
+	$(compose) exec web python manage.py makemigrations
 
 migrate:
 	$(compose) exec web python manage.py migrate

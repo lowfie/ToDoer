@@ -1,15 +1,16 @@
-FROM python:3.11.2
+FROM python:3.11.2 as base
 
-ENV PYTHONUNBUFFERED=1
+RUN apt update && \
+    apt upgrade -y && \
+    pip install --upgrade pip && \
+    pip install poetry && \
+    poetry config virtualenvs.create false
 
-RUN mkdir /app
-WORKDIR /app
-
-COPY pyproject.toml /app/
-
-RUN apt-get update && pip install --upgrade pip && pip install "poetry==1.4.2" && \
-    poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
-
-COPY . /app/
-
+FROM base
 EXPOSE 8000
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN poetry install

@@ -5,12 +5,10 @@ ENV PYTHONUNBUFFERED=1
 RUN mkdir /app
 WORKDIR /app
 
-RUN apt-get update
-RUN pip install --upgrade pip
-
-RUN pip install "poetry==1.4.2"
 COPY pyproject.toml /app/
-RUN poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
+
+RUN apt-get update && pip install --upgrade pip && pip install "poetry==1.4.2" && \
+    poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
 
 COPY . /app/
 

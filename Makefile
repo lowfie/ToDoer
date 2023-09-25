@@ -1,7 +1,27 @@
 .PHONY: test
 
-run:
-	python manage.py runserver
+compose=sudo docker compose -f docker-compose.yaml
+
+up:
+	$(compose) up --build -d
+
+down:
+	$(compose) down
+
+logs:
+	$(compose) logs -f --tail=1000 web
+
+logs-sql:
+	$(compose) logs -f db
+
+migrations:
+	$(compose) wxec web python manage.py makemigrations
+
+migrate:
+	$(compose) exec web python manage.py migrate
 
 shell:
-	python manage.py shell_plus
+	$(compose) exec web python manage.py shell_plus
+
+createadmin:
+	$(compose) exec web python manage.py createsuperuser

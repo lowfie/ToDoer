@@ -15,9 +15,4 @@ COPY . .
 
 RUN poetry install
 
-CMD [
-    "gunicorn", "--bind", "0.0.0.0:8000",
-    "--workers", "3",
-    "--log-level=debug",
-    "src.wsgi:application"
-    ]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "--log-level=debug", "src.wsgi:application"]

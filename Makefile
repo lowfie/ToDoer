@@ -25,3 +25,9 @@ shell:
 
 createadmin:
 	$(compose) exec web python manage.py createsuperuser
+
+test_users:
+	$(compose) exec web python manage.py test src.users.tests
+
+test_tasks:
+	$(compose) exec web python manage.py test src.tasks.tests

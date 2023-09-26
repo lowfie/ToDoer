@@ -40,6 +40,3 @@
  - Docker, Docker-compose
  - Makefile
  - Git
-
-## TODO:
-- Подключить бд к джанге

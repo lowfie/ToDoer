@@ -9,7 +9,7 @@ down:
 	$(compose) down
 
 logs:
-	$(compose) logs -f --tail=1000 web
+	$(compose) logs -f --no-log-prefix --tail=1000 web
 
 logs-sql:
 	$(compose) logs -f db

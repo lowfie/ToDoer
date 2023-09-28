@@ -31,8 +31,11 @@
 `migrations` - создание файлов миграции в Django ORM   
 `migrate` - миграция в базу данных  
 `createadmin` - создание админ-пользователя  
-`test_users` - модульный тест для users модуля  
-`test_tasks` - модульный тест для tasks модуля  
+---
+### Запуск модульных тестов
+Также вы можете использовать команды тестирования модулей  
+`test_users` - users модуль  
+`test_tasks` - tasks модуль   
 
 ## Технологии
  - Django, drf
@@ -42,3 +45,4 @@
  - Docker, Docker-compose
  - Makefile
  - Git
+ - gunicorn
